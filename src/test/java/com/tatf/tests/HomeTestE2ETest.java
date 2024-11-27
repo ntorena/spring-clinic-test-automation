@@ -21,6 +21,7 @@ public class HomeTestE2ETest {
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
+		options.setBinary("/usr/bin/chromium");
 		driver = new ChromeDriver(options);
 	}
 
