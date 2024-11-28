@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.URL;
 
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class HomeTestE2ETest {
 
@@ -18,7 +18,7 @@ public class HomeTestE2ETest {
 
 	@BeforeEach
 	public void setUp() throws Exception {
-		ChromeOptions options = new ChromeOptions();
+		FirefoxOptions options = new FirefoxOptions();
 		driver = new RemoteWebDriver(new URL("http://172.21.0.3:4444/wd/hub"), options);
 	}
 
