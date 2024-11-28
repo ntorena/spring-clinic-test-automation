@@ -19,7 +19,7 @@ public class HomeTestE2ETest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		ChromeOptions options = new ChromeOptions();
-		driver = new RemoteWebDriver(new URL("http://172.17.0.2:4444/wd/hub"), options);
+		driver = new RemoteWebDriver(new URL("http://172.21.0.3:4444/wd/hub"), options);
 	}
 
 	@Test
