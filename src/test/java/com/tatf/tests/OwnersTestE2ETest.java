@@ -1,7 +1,7 @@
 package com.tatf.tests;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import java.net.URL;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -10,23 +10,22 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class OwnersTestE2ETest {
 
 	private WebDriver driver;
 
 	@BeforeEach
-	public void setUp() {
+	public void setUp() throws Exception {
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		driver = new ChromeDriver(options);
+		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 	}
 
 	@Test
 	public void testFindOwners() {
-		driver.get("http://localhost:8080");
+		driver.get("http://host.docker.internal:8080");
 		driver.findElement(By.xpath("//*[@id=\"main-navbar\"]/ul/li[2]/a")).click();
 		assertTrue(driver.getPageSource().contains("Owners"));
 		driver.findElement(By.id("lastName")).sendKeys("Davis");
@@ -41,7 +40,7 @@ public class OwnersTestE2ETest {
 
 	@Test
 	public void testAddOwners() {
-		driver.get("http://localhost:8080");
+		driver.get("http://host.docker.internal:8080");
 		driver.findElement(By.xpath("//*[@id=\"main-navbar\"]/ul/li[2]/a")).click();
 		assertTrue(driver.getPageSource().contains("Owners"));
 		driver.findElement(By.xpath("//*[@id=\"search-owner-form\"]/a")).click();
