@@ -19,7 +19,7 @@ public class HomeTestE2ETest {
 	@BeforeEach
 	public void setUp() throws Exception {
 		FirefoxOptions options = new FirefoxOptions();
-		driver = new RemoteWebDriver(new URL("http://172.21.0.3:4444/wd/hub"), options);
+		driver = new RemoteWebDriver(new URL("http://172.19.0.3:4444/wd/hub"), options);
 	}
 
 	@Test
